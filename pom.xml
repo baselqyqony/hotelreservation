@@ -11,6 +11,7 @@
     <module>DOA</module>
     <module>controller</module>
     <module>console</module>
+    <module>console</module>
   </modules>
   <packaging>pom</packaging>
 
