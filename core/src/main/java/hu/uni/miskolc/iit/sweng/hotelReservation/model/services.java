@@ -4,13 +4,13 @@ public class services {
 
    private ServiceType type;
    private int ID;
-   private int price;
+   private int Price;
 
 
-    public services(ServiceType type, int ID, int price) {
+    public services(ServiceType type, int ID, int Price) {
         this.type = type;
         this.ID = ID;
-        this.price = price;
+        this.Price = Price;
     }
 
     public ServiceType getType() {
@@ -22,7 +22,7 @@ public class services {
     }
 
     public int getPrice() {
-        return price;
+        return Price;
     }
 
     public void setType(ServiceType type) {
@@ -33,8 +33,8 @@ public class services {
         this.ID = ID;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setPrice(int Price) {
+        this.Price = Price;
     }
 
 
