@@ -4,13 +4,13 @@ package hu.uni.miskolc.iit.sweng.hotelReservation.model;
  */
 public class user {
     private  int ID ;
-    private string name;
+    private String name;
     private Nationality nationality;
-    private string phone;
-    private string address;
-    private string Email;
+    private String phone;
+    private String address;
+    private String Email;
 
-    public user(int ID, string name, Nationality nationality, string phone, string address, string email) {
+    public user(int ID, String name, Nationality nationality, String phone, String address, String email) {
         this.ID = ID;
         this.name = name;
         this.nationality = nationality;
@@ -19,7 +19,7 @@ public class user {
         Email = email;
     }
 
-    public void setName(string name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -27,15 +27,15 @@ public class user {
         this.nationality = nationality;
     }
 
-    public void setPhone(string phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public void setAddress(string address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
-    public void setEmail(string email) {
+    public void setEmail(String email) {
         Email = email;
     }
 
@@ -43,7 +43,7 @@ public class user {
         return ID;
     }
 
-    public string getName() {
+    public String getName() {
         return name;
     }
 
@@ -51,15 +51,15 @@ public class user {
         return nationality;
     }
 
-    public string getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public string getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public string getEmail() {
+    public String getEmail() {
         return Email;
     }
 
