@@ -1,5 +1,8 @@
 package hu.uni.miskolc.iit.sweng.hotelReservation.model;
 
+/**
+ * Created by Ahmad Reda on 2017.10.19..
+ */
 public class room {
     private int number;
     private  RoomType type;
