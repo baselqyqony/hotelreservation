@@ -4,5 +4,5 @@ package hu.uni.miskolc.iit.sweng.hotelReservation.model;
 
         sweet,Normal
     }
-}
+
 
