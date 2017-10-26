@@ -2,7 +2,7 @@ package hu.uni.miskolc.iit.sweng.hotelReservation.model;
 /**
  * Created by Kaikoni Basil on 2017.10.19
  */
-public class user {
+public class User {
     private  int ID ;
     private String name;
     private Nationality nationality;
@@ -10,7 +10,7 @@ public class user {
     private String address;
     private String Email;
 
-    public user(int ID, String name, Nationality nationality, String phone, String address, String email) {
+    public User(int ID, String name, Nationality nationality, String phone, String address, String email) {
         this.ID = ID;
         this.name = name;
         this.nationality = nationality;
