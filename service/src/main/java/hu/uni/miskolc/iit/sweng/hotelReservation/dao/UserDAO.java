@@ -11,7 +11,7 @@ public interface UserDAO {
     Collection<User> readUsers();
     Collection<User> readUsersByName(String name);
     Collection<User> readUsersByNationality(Nationality nationality);
-    void addUser(User) throws UserAlreadyExistsException;
+    void addUser(User user) throws UserAlreadyExistsException;
     void updateUser(User user) throws UserNotFoundException;
     void deleteUser(User user) throws UserNotFoundException;
 }
