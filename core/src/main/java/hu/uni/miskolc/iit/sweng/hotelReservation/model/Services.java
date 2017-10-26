@@ -7,7 +7,7 @@ public class Services {
    private int Price;
 
 
-    public services(ServiceType type, int ID, int Price) {
+    public Services(ServiceType type, int ID, int Price) {
         this.type = type;
         this.ID = ID;
         this.Price = Price;
