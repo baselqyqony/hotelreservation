@@ -1,6 +1,6 @@
 package hu.uni.miskolc.iit.sweng.hotelReservation.model;
 
-public class services {
+public class Services {
 
    private ServiceType type;
    private int ID;

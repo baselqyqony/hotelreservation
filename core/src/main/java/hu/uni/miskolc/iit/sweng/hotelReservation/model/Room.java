@@ -3,12 +3,12 @@ package hu.uni.miskolc.iit.sweng.hotelReservation.model;
 /**
  * Created by Ahmad Reda on 2017.10.19..
  */
-public class room {
+public class Room {
     private int number;
     private  RoomType type;
     private int capacity;
 
-    public room(int number, RoomType type, int capacity) {
+    public Room(int number, RoomType type, int capacity) {
         this.number = number;
         this.type = type;
         this.capacity = capacity;
