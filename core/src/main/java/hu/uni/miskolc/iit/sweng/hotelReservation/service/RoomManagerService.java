@@ -1,7 +1,7 @@
 package hu.uni.miskolc.iit.sweng.hotelReservation.service;
-
+import hu.uni.miskolc.iit.sweng.hotelReservation.model.Room;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.RoomType;
-mport hu.uni.miskolc.iit.sweng.hotelReservation.model.Room;
+import java.util.Collection;
 public interface RoomManagerService {
     public Collection<Room> listAllrooms();
     public Collection<Room> listRoomByNumber(int number);
