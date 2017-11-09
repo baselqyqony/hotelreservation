@@ -1,4 +1,6 @@
 package hu.uni.miskolc.iit.sweng.hotelReservation.service;
+
+
 import com.sun.xml.internal.ws.api.pipe.ThrowableContainerPropertySet;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.Room;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.RoomType;

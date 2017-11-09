@@ -1,13 +1,13 @@
 package hu.uni.miskolc.iit.sweng.hotelReservation.model;
 
-public class Services {
+public class Service {
 
    private ServiceType type;
    private int ID;
    private int Price;
 
 
-    public Services(ServiceType type, int ID, int Price) {
+    public Service(ServiceType type, int ID, int Price) {
         this.type = type;
         this.ID = ID;
         this.Price = Price;
