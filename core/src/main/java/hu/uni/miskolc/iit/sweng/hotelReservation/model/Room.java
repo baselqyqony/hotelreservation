@@ -47,6 +47,10 @@ public class Room {
         this.number = number;
     }
 
+    /**
+     *
+     * @return RoomType
+     */
     public RoomType getType() {
         return type;
     }
@@ -55,6 +59,10 @@ public class Room {
         this.type = type;
     }
 
+    /**
+     *
+     * @return int this returns the capacity of room
+     */
     public int getCapacity() {
         return capacity;
     }
