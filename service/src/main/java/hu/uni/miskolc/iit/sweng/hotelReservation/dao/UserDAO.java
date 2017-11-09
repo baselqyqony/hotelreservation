@@ -8,6 +8,7 @@ import hu.uni.miskolc.iit.sweng.hotelReservation.model.User;
 import java.util.Collection;
 
 public interface UserDAO {
+    
     Collection<User> readUsers();
     Collection<User> readUsersByName(String name);
     Collection<User> readUsersByNationality(Nationality nationality);

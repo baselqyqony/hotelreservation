@@ -7,6 +7,7 @@ import hu.uni.miskolc.iit.sweng.hotelReservation.model.RoomType;
 import java.util.Collection;
 
 public interface RoomDAO {
+
     Collection<Room> readRoom();
     Collection<Room> readRoomByNumber(int number);
     Collection<Room> readRoomByType(RoomType room);
