@@ -1,7 +1,7 @@
 package hu.uni.miskolc.iit.sweng.hotelReservation.model;
 
 /**
- * hold room data
+ * Create Class Room for Room Information
  * @author Ahmad Reda
  *@version 1.0
  * @since 09 - 11 - 2017
@@ -9,20 +9,20 @@ package hu.uni.miskolc.iit.sweng.hotelReservation.model;
  */
 public class Room {
     /**
-     * room number
+     * number of the room
      */
     private int number;
     /**
-     * room type
+     * type of the room
      */
     private  RoomType type;
     /**
-     * room capacity(number of beds);
+     *capacity of the room(number of beds).
      */
     private int capacity;
 
     /**
-     * Room class constructor
+     * this is the constructor to initialize room object.
      * @param number room number
      * @param type room type
      * @param capacity capacity of room
@@ -35,25 +35,34 @@ public class Room {
 
     /**
      *
-     *
-     * @return int  This returns room number
+     * To get room number.
+     * @return  room number
      */
     public int getNumber() {
         return number;
     }
 
+    /**
+     * To set number of the room.
+     * @param number new room number.
+     */
 
     public void setNumber(int number) {
         this.number = number;
     }
 
     /**
-     *
-     * @return RoomType
+     *To get room type
+     * @return room type
      */
     public RoomType getType() {
         return type;
     }
+
+    /**
+     * To set room type
+     * @param type type of the room
+     */
 
     public void setType(RoomType type) {
         this.type = type;
@@ -66,6 +75,11 @@ public class Room {
     public int getCapacity() {
         return capacity;
     }
+
+    /**
+     * To set Room Capacity
+     * @param capacity room capacity
+     */
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
