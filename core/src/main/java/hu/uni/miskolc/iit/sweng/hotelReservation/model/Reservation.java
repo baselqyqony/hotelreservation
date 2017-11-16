@@ -4,10 +4,7 @@ import java.util.Collection;
 
 public class Reservation {
 
-    private Collection<Room> Rooms;
+    private Room Rooms;
     private User User;
-
-
-
 
 }
