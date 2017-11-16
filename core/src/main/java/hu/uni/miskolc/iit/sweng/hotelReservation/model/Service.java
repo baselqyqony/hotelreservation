@@ -1,16 +1,18 @@
 package hu.uni.miskolc.iit.sweng.hotelReservation.model;
 
+import java.math.BigDecimal;
+
 public class Service {
 
    private ServiceType type;
    private int ID;
-   private int Price;
+   private Price price;
 
 
-    public Service(ServiceType type, int ID, int Price) {
+    public Service(ServiceType type, int ID) {
         this.type = type;
         this.ID = ID;
-        this.Price = Price;
+        this.price=new Price(type.getValue());
     }
 
     public ServiceType getType() {
@@ -21,9 +23,7 @@ public class Service {
         return ID;
     }
 
-    public int getPrice() {
-        return Price;
-    }
+
 
     public void setType(ServiceType type) {
         this.type = type;
@@ -33,9 +33,11 @@ public class Service {
         this.ID = ID;
     }
 
-    public void setPrice(int Price) {
-        this.Price = Price;
+    public void setPrice(BigDecimal Price) {
+        this.price.setAmount(Price);
     }
+    public void setCurrency(CurrencyType ct){ this.price.setCurrencyType(ct);}
+    public BigDecimal getPrice(){return price.getAmount();}
 
 
 }

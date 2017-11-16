@@ -2,7 +2,7 @@ package hu.uni.miskolc.iit.sweng.hotelReservation.model;
 
 import java.math.BigDecimal;
 import java.util.Currency;
-import java.util.Locale;
+
 
 
 
@@ -10,7 +10,7 @@ import java.util.Locale;
  *
  * @author Basil Kaikoni
  * @version 1.0
- *
+ *@since  9-Nov -2017
  */
 
 public class Price {
@@ -51,6 +51,17 @@ public class Price {
                 break;
                 default:currency=Currency.getInstance("EUR");
         }
+
+    }
+
+    /**
+     * amount of money
+     * @param amount
+     */
+    public Price(BigDecimal amount) {
+        this.amount = amount;
+        this.currencyType=CurrencyType.HUF;
+        currency=Currency.getInstance("HUF");
 
     }
 
