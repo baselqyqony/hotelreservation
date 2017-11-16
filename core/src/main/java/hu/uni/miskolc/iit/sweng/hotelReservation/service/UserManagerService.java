@@ -11,19 +11,19 @@ import java.util.Collection;
 Created By Basil Kaikoni 26-10-2017
  */
 public interface UserManagerService {
-    public Collection<User> listAllUsers();
-    public Collection<User> listUserByName(String Name);
-    public Collection<User> listUserByID (int ID);
+    public Collection<User> listAllUsers() ;
+    public Collection<User> listUserByName(String Name) throws UserNotFoundException;
+    public User listUserByID (int ID) throws UserNotFoundException;
     public Collection<User> listUserByNationality (Nationality nationality);
-    public Collection<User> listUserByPhone(String phone);
-    public Collection<User> listUserByAddress(String address);
+    public User listUserByPhone(String phone) throws UserNotFoundException;
+    public User listUserByAddress(String address) throws UserNotFoundException;
     public Collection<User> listUserByEmail (String email);
-    public User createUser(  String name,
+    public User createUser(int ID ,String name,
              Nationality nationality,
              String phone,
              String address,
              String Email) throws UserAlreadyExistException;
 
-    public Collection<User> deleteUser(int ID, Collection<User> users) throws UserNotFoundException;
+    public void deleteUser(User user) throws UserNotFoundException;
   //  public void editUser(User user ) ;
 }

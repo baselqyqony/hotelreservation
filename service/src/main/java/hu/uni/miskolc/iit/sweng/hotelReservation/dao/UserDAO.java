@@ -10,9 +10,13 @@ import java.util.Collection;
 public interface UserDAO {
     
     Collection<User> readUsers();
-    Collection<User> readUsersByName(String name);
-    Collection<User> readUsersByNationality(Nationality nationality);
-    void addUser(User user) throws UserAlreadyExistsException;
-    void updateUser(User user) throws UserNotFoundException;
+    Collection<User> readUsersByName(String name) throws UserNotFoundException;
+    Collection<User> readUsersByNationality(Nationality nationality) throws UserNotFoundException;
+    User readUsersById(int ID)throws UserNotFoundException;
+    User listUserByPhone(String phone) throws UserNotFoundException;
+    User listUserByAddress(String address) throws UserNotFoundException;
+    Collection<User> listUserByEmail(String email) throws UserNotFoundException;
+    User createUser(User user) throws UserAlreadyExistsException;
+    User updateUser(User user) throws UserNotFoundException;
     void deleteUser(User user) throws UserNotFoundException;
 }
