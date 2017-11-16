@@ -9,12 +9,12 @@ import java.util.Collection;
 public interface RoomDAO {
 
     Collection<Room> readRoom();
-    Collection<Room> readRoomByNumber(int number);
-    Collection<Room> readRoomByType(RoomType room);
-    Collection<Room> readRoomByCapacities(int capacity);
+    Room readRoomByNumber(int number)  throws RoomNotFoundException;
+    Collection<Room> readRoomByType(RoomType type)  throws RoomNotFoundException;
+    Collection<Room> readRoomByCapacities(int capacity)  throws RoomNotFoundException;
 
-    void addRoom (Room room) throws RoomAlreadyExistException;
-    void updateRoom (Room room) throws RoomNotFoundException;
+    Room createRoom (Room room) throws RoomAlreadyExistException;
+    Room updateRoom (Room room) throws RoomNotFoundException;
     void deleteRoom (Room room) throws RoomNotFoundException;
 
 }
