@@ -2,12 +2,12 @@ package hu.uni.miskolc.iit.sweng.hotelReservation.model.service;
 
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.room.Room;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.*;
-
 import java.util.Collection;
 import java.util.Date;
 
 public class Reservation {
 
+    private int ReservationID;
     private Collection<Room> Rooms;
     private User user;
     private Date DateIn;
@@ -16,7 +16,8 @@ public class Reservation {
     private int NumberOfUsers;
     private PaymentOptions PaymentOption;
 
-    public Reservation(Collection<Room> rooms, User user, Date dateIn, Date dateOut, int numberOfRooms, int numberOfUsers, PaymentOptions paymentOption) {
+    public Reservation(int reservationID, Collection<Room> rooms, User user, Date dateIn, Date dateOut, int numberOfRooms, int numberOfUsers, PaymentOptions paymentOption) {
+        ReservationID = reservationID;
         Rooms = rooms;
         this.user = user;
         DateIn = dateIn;
@@ -24,6 +25,14 @@ public class Reservation {
         NumberOfRooms = numberOfRooms;
         NumberOfUsers = numberOfUsers;
         PaymentOption = paymentOption;
+    }
+
+    public int getReservationID() {
+        return ReservationID;
+    }
+
+    public void setReservationID(int ReservationID) {
+        ReservationID = ReservationID;
     }
 
     public Collection<Room> getRooms() {
