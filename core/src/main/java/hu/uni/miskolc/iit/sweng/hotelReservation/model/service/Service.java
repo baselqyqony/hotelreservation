@@ -1,4 +1,7 @@
-package hu.uni.miskolc.iit.sweng.hotelReservation.model;
+package hu.uni.miskolc.iit.sweng.hotelReservation.model.service;
+
+import hu.uni.miskolc.iit.sweng.hotelReservation.model.CurrencyType;
+import hu.uni.miskolc.iit.sweng.hotelReservation.model.Price;
 
 import java.math.BigDecimal;
 

@@ -1,4 +1,4 @@
-package hu.uni.miskolc.iit.sweng.hotelReservation.model;
+package hu.uni.miskolc.iit.sweng.hotelReservation.model.service;
 
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.room.Room;
 
