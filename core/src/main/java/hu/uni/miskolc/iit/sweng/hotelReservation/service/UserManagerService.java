@@ -1,8 +1,8 @@
 package hu.uni.miskolc.iit.sweng.hotelReservation.service;
-import hu.uni.miskolc.iit.sweng.hotelReservation.model.Nationality;
-import hu.uni.miskolc.iit.sweng.hotelReservation.model.User;
+import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.Nationality;
+import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.User;
 import hu.uni.miskolc.iit.sweng.hotelReservation.service.exceptions.UserAlreadyExistException;
-import hu.uni.miskolc.iit.sweng.hotelReservation.service.exceptions.UserNotfoundException;
+import hu.uni.miskolc.iit.sweng.hotelReservation.service.exceptions.UserNotFoundException;
 
 import java.util.Collection;
 
@@ -24,6 +24,6 @@ public interface UserManagerService {
              String address,
              String Email) throws UserAlreadyExistException;
 
-    public Collection<User> deleteUser(int ID, Collection<User> users) throws UserNotfoundException;
+    public Collection<User> deleteUser(int ID, Collection<User> users) throws UserNotFoundException;
   //  public void editUser(User user ) ;
 }

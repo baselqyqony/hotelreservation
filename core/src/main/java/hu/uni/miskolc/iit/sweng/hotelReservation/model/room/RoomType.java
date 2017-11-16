@@ -1,4 +1,4 @@
-package hu.uni.miskolc.iit.sweng.hotelReservation.model;
+package hu.uni.miskolc.iit.sweng.hotelReservation.model.room;
 
 import java.math.BigDecimal;
 

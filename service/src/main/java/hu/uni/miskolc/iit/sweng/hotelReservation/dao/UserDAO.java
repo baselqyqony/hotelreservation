@@ -2,8 +2,8 @@ package hu.uni.miskolc.iit.sweng.hotelReservation.dao;
 
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserAlreadyExistsException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserNotFoundException;
-import hu.uni.miskolc.iit.sweng.hotelReservation.model.Nationality;
-import hu.uni.miskolc.iit.sweng.hotelReservation.model.User;
+import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.Nationality;
+import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.User;
 
 import java.util.Collection;
 

@@ -1,8 +1,8 @@
 package hu.uni.miskolc.iit.sweng.hotelReservation.dao;
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.RoomAlreadyExistException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.RoomNotFoundException;
-import hu.uni.miskolc.iit.sweng.hotelReservation.model.Room;
-import hu.uni.miskolc.iit.sweng.hotelReservation.model.RoomType;
+import hu.uni.miskolc.iit.sweng.hotelReservation.model.room.Room;
+import hu.uni.miskolc.iit.sweng.hotelReservation.model.room.RoomType;
 
 import java.util.Collection;
 
