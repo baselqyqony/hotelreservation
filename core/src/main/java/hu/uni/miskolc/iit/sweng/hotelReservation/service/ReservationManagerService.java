@@ -22,8 +22,7 @@ public interface ReservationManagerService {
     public Collection<Reservation> listAllReservationsByNumberOfUsers(int NumberOfUsers);
     public Collection<Reservation> listAllReservationsByPaymentOption(PaymentOptions PaymentOption);
 
-    public User createReservation(int ReservationID,
-                                  Collection<Room> Rooms,
+    public User createReservation(Collection<Room> Rooms,
                                   User user,
                                   Date DateIn,
                                   Date DateOut,
@@ -32,7 +31,6 @@ public interface ReservationManagerService {
                                   PaymentOptions PaymentOption) throws ReservationAlreadyExistException;
 
     public Collection<Reservation> deleteReservation(int ReservationID, Collection<Reservation> Reservations) throws ReservationNotFoundException;
-
 }
 
 
