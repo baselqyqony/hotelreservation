@@ -1,4 +1,4 @@
-package hu.uni.miskolc.iit.sweng.hotelReservation.model;
+package hu.uni.miskolc.iit.sweng.hotelReservation.model.user;
 /**
  * Created by Kaikoni Basil on 2017.10.19
  */

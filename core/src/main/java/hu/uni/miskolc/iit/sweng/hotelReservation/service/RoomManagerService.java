@@ -1,8 +1,8 @@
 package hu.uni.miskolc.iit.sweng.hotelReservation.service;
 
 
-import hu.uni.miskolc.iit.sweng.hotelReservation.model.Room;
-import hu.uni.miskolc.iit.sweng.hotelReservation.model.RoomType;
+import hu.uni.miskolc.iit.sweng.hotelReservation.model.room.Room;
+import hu.uni.miskolc.iit.sweng.hotelReservation.model.room.RoomType;
 import hu.uni.miskolc.iit.sweng.hotelReservation.service.exceptions.RoomNotFoundException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.service.exceptions.RoomAlreadyExistException;
 
