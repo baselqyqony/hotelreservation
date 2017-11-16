@@ -11,6 +11,7 @@ import java.util.Currency;
  * @author Basil Kaikoni
  * @version 1.0
  *@since  9-Nov -2017
+ * class store mony amount and currency type
  */
 
 public class Price {
@@ -20,7 +21,7 @@ public class Price {
      */
     private Currency currency ;
     /**
-     * amoount of money
+     * amount of money
      */
     private BigDecimal amount;
 
@@ -65,28 +66,57 @@ public class Price {
 
     }
 
+    /**
+     * get currency object
+     * @return
+     */
     public Currency getCurrency() {
         return currency;
     }
 
+    /**
+     * return Money value
+     * @return
+     */
     public BigDecimal getAmount() {
         return amount;
     }
 
+    /**
+     * return currency type
+     * @return
+     */
     public CurrencyType getCurrencyType() {
         return currencyType;
     }
 
-    public void setCurrency(Currency currency) {
-        this.currency = currency;
-    }
 
+    /**
+     * set money amount
+     * @param amount
+     */
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
+    /**
+     * set currency type
+     * @param currencyType
+     */
     public void setCurrencyType(CurrencyType currencyType) {
         this.currencyType = currencyType;
+        switch (currencyType) {
+
+            case HUF: currency=Currency.getInstance("HUF");
+                break;
+            case USD:currency=Currency.getInstance("USD");
+                break;
+            case SYP:currency=Currency.getInstance("SYP");
+                break;
+            case EUR:currency=Currency.getInstance("EUR");
+                break;
+            default:currency=Currency.getInstance("EUR");
+        }
     }
 
 

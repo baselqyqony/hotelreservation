@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 
 /**
  * Created by Ahmad Reda on 2017.10.19..
- * @version 1.1
- *
+ * @version 1.1 updated by Basil Kaikoni .. add price mapping
+ *room type enum
  */
     public enum RoomType {
 
@@ -17,6 +17,10 @@ import java.math.BigDecimal;
         this.price = price;
     }
 
+    /**
+     * room type price
+     * @return
+     */
     public BigDecimal Price() {
         return price;
     }
