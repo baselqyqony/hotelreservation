@@ -22,11 +22,12 @@ public interface RoomManagerService {
      * @return
      */
     Collection<Room> listAllrooms();
-    Collection<Room> listRoomByNumber(int number);
+    Room listRoomByNumber(int number) throws RoomNotFoundException;
     Collection<Room> listRoomByType(RoomType type );
     Collection<Room> listRoomByCapacity(int capacity);
 
-    Room createRoom(int number, RoomType type, int capacity) throws RoomAlreadyExistException;
-    Collection<Room> deleteRoom(int number, Collection<Room> rooms) throws RoomNotFoundException;
+    Room createRoom (int number, RoomType type, int capacity) throws RoomAlreadyExistException;
+
+    public void deleteRoom(Room room) throws RoomNotFoundException;
 
 }

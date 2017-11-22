@@ -1,8 +1,9 @@
 package hu.uni.miskolc.iit.sweng.hotelReservation.model.room;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.CurrencyType;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.Price;
-
 import java.math.BigDecimal;
+import java.util.Collection;
+
 /**
  * Created by Ahmad Reda on 2017.10.19..
  */
