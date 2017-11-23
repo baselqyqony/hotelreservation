@@ -1,12 +1,15 @@
 package hu.uni.miskolc.iit.sweng.hotelReservation.userService;
 
+
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.UserDAO;
-import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserAlreadyExistsException;
+import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserRecordAlreadyExistsException;
+import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserRecordNotFoundException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.Nationality;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.User;
 import hu.uni.miskolc.iit.sweng.hotelReservation.service.UserManagerService;
 import hu.uni.miskolc.iit.sweng.hotelReservation.service.exceptions.UserAlreadyExistException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.service.exceptions.UserNotFoundException;
+
 
 
 import java.util.Collection;
@@ -32,56 +35,54 @@ public class UserManagerServiceImpl implements UserManagerService {
     }
 
     public Collection<User> listUserByName(String Name) throws UserNotFoundException {
+
         try {
             return userDao.readUsersByName(Name);
-        } catch (hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserNotFoundException e) {
-            e.printStackTrace();
-            return null;
+        } catch (UserRecordNotFoundException e) {
+            throw new UserNotFoundException("no user found");
         }
+
     }
 
     public User listUserByID(int ID) throws UserNotFoundException {
+
         try {
             return userDao.readUsersById(ID);
-        } catch (hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserNotFoundException e) {
-            e.printStackTrace();
-            return null;
+        } catch (UserRecordNotFoundException e) {
+            throw new UserNotFoundException("user not found");
         }
+
     }
 
-    public Collection<User> listUserByNationality(Nationality nationality) {
+    public Collection<User> listUserByNationality(Nationality nationality)  throws UserNotFoundException {
         try {
             return userDao.readUsersByNationality(nationality);
-        } catch (hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserNotFoundException e) {
-            e.printStackTrace();
-            return null;
+        } catch (UserRecordNotFoundException e) {
+           throw new UserNotFoundException("no user found");
         }
     }
 
     public User listUserByPhone(String phone) throws UserNotFoundException {
         try {
             return userDao.listUserByPhone(phone);
-        } catch (hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserNotFoundException e) {
-            e.printStackTrace();
-            return null;
+        } catch (Exception e) {
+           throw new UserNotFoundException("user not found");
         }
     }
 
     public User listUserByAddress(String address) throws UserNotFoundException {
         try {
             return userDao.listUserByAddress(address);
-        } catch (hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserNotFoundException e) {
-            e.printStackTrace();
-            return null;
+        } catch (UserRecordNotFoundException e) {
+            throw new UserNotFoundException("user not found");
         }
     }
 
-    public Collection<User> listUserByEmail(String email) {
+    public Collection<User> listUserByEmail(String email) throws UserNotFoundException{
         try {
             return userDao.listUserByEmail(email);
-        } catch (hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserNotFoundException e) {
-            e.printStackTrace();
-            return null;
+        } catch (UserRecordNotFoundException e) {
+          throw new UserNotFoundException("user not found");
         }
     }
 
@@ -89,17 +90,16 @@ public class UserManagerServiceImpl implements UserManagerService {
         User user =new User( ID, name,  nationality,  phone,  address, Email);
         try {
             return userDao.createUser(user);
-        } catch (UserAlreadyExistsException e) {
-            e.printStackTrace();
-            return null;
+        } catch (UserRecordAlreadyExistsException e) {
+            throw new UserAlreadyExistException("user already exists");
         }
     }
 
     public void deleteUser(User user) throws UserNotFoundException {
         try {
             userDao.deleteUser(user);
-        } catch (hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserNotFoundException e) {
-            e.printStackTrace();
+        } catch (UserRecordNotFoundException e) {
+            throw new UserNotFoundException("no user found");
         }
     }
 }
