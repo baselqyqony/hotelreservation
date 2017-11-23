@@ -23,8 +23,8 @@ public interface RoomManagerService {
      */
     Collection<Room> listAllrooms();
     Room listRoomByNumber(int number) throws RoomNotFoundException;
-    Collection<Room> listRoomByType(RoomType type );
-    Collection<Room> listRoomByCapacity(int capacity);
+    Collection<Room> listRoomByType(RoomType type ) throws RoomNotFoundException;
+    Collection<Room> listRoomByCapacity(int capacity)throws RoomNotFoundException;
 
     Room createRoom (int number, RoomType type, int capacity) throws RoomAlreadyExistException;
 

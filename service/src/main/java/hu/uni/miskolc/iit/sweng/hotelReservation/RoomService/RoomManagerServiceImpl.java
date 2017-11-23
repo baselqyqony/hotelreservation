@@ -1,6 +1,8 @@
 package hu.uni.miskolc.iit.sweng.hotelReservation.RoomService;
 
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.RoomDAO;
+import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.RoomRecordAlreadyExistException;
+import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.RoomRecordNotFoundException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.room.Room;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.room.RoomType;
 import hu.uni.miskolc.iit.sweng.hotelReservation.service.RoomManagerService;
@@ -30,49 +32,46 @@ public  class RoomManagerServiceImpl implements RoomManagerService {
     public Room listRoomByNumber(int number) throws RoomNotFoundException {
         try {
             return roomDao.readRoomByNumber(number);
-        } catch (hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.RoomNotFoundException e) {
-            e.printStackTrace();
-            return null;
+        } catch (RoomRecordNotFoundException e) {
+            throw new RoomNotFoundException("Room Not Found");
         }
     }
 
-    public Collection<Room> listRoomByType(RoomType type)
+    public Collection<Room> listRoomByType(RoomType type)throws RoomNotFoundException
     {
         try {
             return roomDao.readRoomByType(type);
-        } catch (hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.RoomNotFoundException e) {
-            e.printStackTrace();
-            return null;
+        } catch (RoomRecordNotFoundException e) {
+            throw new RoomNotFoundException("Room Not Found");
         }
     }
 
-    public Collection<Room> listRoomByCapacity(int capacity)
+    public Collection<Room> listRoomByCapacity(int capacity)throws RoomNotFoundException
     {
         try {
             return roomDao.readRoomByCapacities(capacity);
-        } catch (hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.RoomNotFoundException e) {
-            e.printStackTrace();
-            return null;
+        } catch (RoomRecordNotFoundException e) {
+            throw new RoomNotFoundException("Room Not Found");
         }
     }
 
     public Room createRoom(int number, RoomType type, int capacity) throws RoomAlreadyExistException {
         Room room=new Room(number,type,capacity);
         try {
-            roomDao.createRoom(room);
+            return roomDao.createRoom(room);
+                    }
+        catch (RoomRecordAlreadyExistException e) {
+          throw new RoomAlreadyExistException("Room Already Exist");
         }
-        catch (hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.RoomAlreadyExistException e) {
-            e.printStackTrace();
-        }
-        return null;
+
     }
 
     public void deleteRoom(Room room) throws RoomNotFoundException {
         try {
             roomDao.deleteRoom(room);
         }
-            catch (hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.RoomNotFoundException e) {
-            e.printStackTrace();
+            catch (RoomRecordNotFoundException e) {
+           throw new RoomNotFoundException("Room Not Found");
         }
     }
 
