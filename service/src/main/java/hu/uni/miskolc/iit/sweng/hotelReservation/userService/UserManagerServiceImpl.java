@@ -70,7 +70,7 @@ public class UserManagerServiceImpl implements UserManagerService {
         }
     }
 
-    public User listUserByAddress(String address) throws UserNotFoundException {
+    public Collection<User> listUserByAddress(String address) throws UserNotFoundException {
         try {
             return userDao.listUserByAddress(address);
         } catch (UserRecordNotFoundException e) {
@@ -89,6 +89,7 @@ public class UserManagerServiceImpl implements UserManagerService {
     public User createUser(int ID, String name, Nationality nationality, String phone, String address, String Email) throws UserAlreadyExistException {
         User user =new User( ID, name,  nationality,  phone,  address, Email);
         try {
+
             return userDao.createUser(user);
         } catch (UserRecordAlreadyExistsException e) {
             throw new UserAlreadyExistException("user already exists");
