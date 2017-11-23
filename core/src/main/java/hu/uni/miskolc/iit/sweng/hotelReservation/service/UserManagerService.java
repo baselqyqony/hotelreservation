@@ -16,8 +16,9 @@ public interface UserManagerService {
     public User listUserByID (int ID) throws UserNotFoundException;
     public Collection<User> listUserByNationality (Nationality nationality) throws UserNotFoundException;
     public User listUserByPhone(String phone) throws UserNotFoundException;
-    public User listUserByAddress(String address) throws UserNotFoundException;
+    public Collection<User> listUserByAddress(String address) throws UserNotFoundException;
     public Collection<User> listUserByEmail (String email) throws UserNotFoundException;
+
     public User createUser(int ID ,String name,
              Nationality nationality,
              String phone,
