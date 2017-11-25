@@ -8,6 +8,11 @@ import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.User;
 
 import java.util.Collection;
 
+
+/**
+ * @author  Basil Kaikoni
+ * @version 1.1 update delet modify user return types
+ */
 public interface UserDAO {
 
     /**
@@ -75,15 +80,16 @@ public interface UserDAO {
     /**
      * update user info to database
      * @param user
-     * @return user
+     * @return process result update success of fail
      * @throws UserRecordNotFoundException
      */
-    User updateUser(User user) throws UserRecordNotFoundException;
+    boolean updateUser(User user) throws UserRecordNotFoundException;
 
     /**
      * delete user
      * @param user
+     * @return result of delete process success or fail
      * @throws UserRecordNotFoundException
      */
-    void deleteUser(User user) throws UserRecordNotFoundException;
+    boolean deleteUser(User user) throws UserRecordNotFoundException;
 }

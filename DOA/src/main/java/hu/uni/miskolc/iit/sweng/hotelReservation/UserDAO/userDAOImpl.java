@@ -7,8 +7,7 @@ import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserRecordAlready
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserRecordNotFoundException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.Nationality;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.User;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -21,6 +20,7 @@ import java.util.regex.Pattern;
  * @author  Basil Kaikoni
  * @since 23 November 2017
  * @version 1.1 implementing functions
+ * @version 1.2 implements updateUser and deleteUser functions
  */
 public class userDAOImpl implements UserDAO{
 
@@ -214,20 +214,59 @@ public class userDAOImpl implements UserDAO{
      * update user info to database
      *
      * @param user
-     * @return user
+     * @return process result update success of fail
      * @throws UserRecordNotFoundException
      */
-    public User updateUser(User user) throws UserRecordNotFoundException {
-        throw new NotImplementedException();
+    public boolean updateUser(User user) throws UserRecordNotFoundException {
+        boolean userFound=true;
+
+        for(User record:users)
+        {
+           if(record.getID()==user.getID()){
+               record.setAddress(user.getEmail());
+               record.setName(user.getName());
+               record.setNationality(user.getNationality());
+               record.setPhone(user.getPhone());
+
+               userFound=true;
+               break;
+           }
+
+        }
+        if(! userFound){
+            throw new UserRecordNotFoundException("no user found");
+        }
+
+        return userFound;
+
     }
+
+
 
     /**
      * delete user
-     *
      * @param user
+     * @return result of delete process success or fail
      * @throws UserRecordNotFoundException
      */
-    public void deleteUser(User user) throws UserRecordNotFoundException {
-        throw new NotImplementedException();
+    public boolean deleteUser(User user) throws UserRecordNotFoundException {
+        boolean userFound=true;
+
+        for(User record:users)
+        {
+            if(record.getID()==user.getID()){
+
+               users.remove(user);
+                userFound=true;
+                break;
+            }
+
+        }
+        if(! userFound){
+            throw new UserRecordNotFoundException("no user found");
+        }
+
+        return userFound;
+
     }
 }
