@@ -1,6 +1,6 @@
 package hu.uni.miskolc.iit.sweng.hotelReservation.dao;
 
-import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.IncorrectEmailFormatException;
+import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.IncorrectEmailRecordFormatException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserRecordAlreadyExistsException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserRecordNotFoundException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.Nationality;
@@ -67,7 +67,7 @@ public interface UserDAO {
      * @return user
      * @throws UserRecordNotFoundException
      */
-    Collection<User> listUserByEmail(String email) throws UserRecordNotFoundException,IncorrectEmailFormatException;
+    Collection<User> listUserByEmail(String email) throws UserRecordNotFoundException,IncorrectEmailRecordFormatException;
 
     /**
      * create new user

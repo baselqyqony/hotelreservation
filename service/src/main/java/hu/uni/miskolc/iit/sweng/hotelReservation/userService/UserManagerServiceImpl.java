@@ -2,11 +2,13 @@ package hu.uni.miskolc.iit.sweng.hotelReservation.userService;
 
 
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.UserDAO;
+import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.IncorrectEmailRecordFormatException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserRecordAlreadyExistsException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserRecordNotFoundException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.Nationality;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.User;
 import hu.uni.miskolc.iit.sweng.hotelReservation.service.UserManagerService;
+import hu.uni.miskolc.iit.sweng.hotelReservation.service.exceptions.IncorrectEmailFormatException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.service.exceptions.UserAlreadyExistException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.service.exceptions.UserNotFoundException;
 
@@ -78,11 +80,13 @@ public class UserManagerServiceImpl implements UserManagerService {
         }
     }
 
-    public Collection<User> listUserByEmail(String email) throws UserNotFoundException{
+    public Collection<User> listUserByEmail(String email) throws UserNotFoundException,IncorrectEmailFormatException {
         try {
             return userDao.listUserByEmail(email);
         } catch (UserRecordNotFoundException e) {
           throw new UserNotFoundException("user not found");
+        } catch (IncorrectEmailRecordFormatException e) {
+            throw new IncorrectEmailFormatException("incorrect Email");
         }
     }
 

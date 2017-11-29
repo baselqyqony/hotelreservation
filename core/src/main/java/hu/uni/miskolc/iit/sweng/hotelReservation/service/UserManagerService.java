@@ -1,6 +1,7 @@
 package hu.uni.miskolc.iit.sweng.hotelReservation.service;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.Nationality;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.User;
+import hu.uni.miskolc.iit.sweng.hotelReservation.service.exceptions.IncorrectEmailFormatException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.service.exceptions.UserAlreadyExistException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.service.exceptions.UserNotFoundException;
 
@@ -17,7 +18,7 @@ public interface UserManagerService {
     public Collection<User> listUserByNationality (Nationality nationality) throws UserNotFoundException;
     public User listUserByPhone(String phone) throws UserNotFoundException;
     public Collection<User> listUserByAddress(String address) throws UserNotFoundException;
-    public Collection<User> listUserByEmail (String email) throws UserNotFoundException;
+    public Collection<User> listUserByEmail (String email) throws UserNotFoundException, IncorrectEmailFormatException;
 
     public User createUser(int ID ,String name,
              Nationality nationality,
