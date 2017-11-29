@@ -2,7 +2,7 @@ package hu.uni.miskolc.iit.sweng.hotelReservation.UserDAO;
 
 
 import  hu.uni.miskolc.iit.sweng.hotelReservation.dao.UserDAO;
-import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.IncorrectEmailFormatException;
+import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.IncorrectEmailRecordFormatException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserRecordAlreadyExistsException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserRecordNotFoundException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.Nationality;
@@ -164,13 +164,13 @@ public class userDAOImpl implements UserDAO{
      * @return user
      * @throws UserRecordNotFoundException
      */
-    public Collection<User> listUserByEmail(String email) throws UserRecordNotFoundException,IncorrectEmailFormatException {
+    public Collection<User> listUserByEmail(String email) throws UserRecordNotFoundException,IncorrectEmailRecordFormatException {
         //check Email format validity
          final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
          Matcher checker=VALID_EMAIL_ADDRESS_REGEX.matcher(email);
          if(!checker.find())
         {
-            throw new IncorrectEmailFormatException("incorrect email format !");
+            throw new IncorrectEmailRecordFormatException("incorrect email format !");
         }
         else {
              Collection<User> result = new HashSet<User>();
@@ -218,7 +218,7 @@ public class userDAOImpl implements UserDAO{
      * @throws UserRecordNotFoundException
      */
     public boolean updateUser(User user) throws UserRecordNotFoundException {
-        boolean userFound=true;
+        boolean userFound=false;
 
         for(User record:users)
         {
@@ -250,7 +250,7 @@ public class userDAOImpl implements UserDAO{
      * @throws UserRecordNotFoundException
      */
     public boolean deleteUser(User user) throws UserRecordNotFoundException {
-        boolean userFound=true;
+        boolean userFound=false;
 
         for(User record:users)
         {

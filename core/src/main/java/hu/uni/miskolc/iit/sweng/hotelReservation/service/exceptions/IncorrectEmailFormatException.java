@@ -1,6 +1,6 @@
-package hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception;
+package hu.uni.miskolc.iit.sweng.hotelReservation.service.exceptions;
 
-public class IncorrectEmailFormatException extends PersistenceException {
+public class IncorrectEmailFormatException extends Exception{
     public IncorrectEmailFormatException() {
     }
 
