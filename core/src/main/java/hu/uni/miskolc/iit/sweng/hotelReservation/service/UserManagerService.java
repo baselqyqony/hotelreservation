@@ -27,5 +27,7 @@ public interface UserManagerService {
              String Email) throws UserAlreadyExistException;
 
     public void deleteUser(User user) throws UserNotFoundException;
-  //  public void editUser(User user ) ;
+
+
+    boolean updateUser(User user) throws UserNotFoundException;
 }

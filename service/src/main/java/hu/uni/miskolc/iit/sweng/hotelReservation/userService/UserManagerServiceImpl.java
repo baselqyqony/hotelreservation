@@ -107,4 +107,12 @@ public class UserManagerServiceImpl implements UserManagerService {
             throw new UserNotFoundException("no user found");
         }
     }
+
+    public boolean updateUser(User user) throws UserNotFoundException {
+        try {
+            return userDao.updateUser(user);
+        } catch (UserRecordNotFoundException e) {
+            throw new UserNotFoundException("this user in not found");
+        }
+    }
 }
