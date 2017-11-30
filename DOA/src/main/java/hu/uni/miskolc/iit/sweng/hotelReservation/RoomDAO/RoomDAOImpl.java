@@ -146,8 +146,6 @@ if (record.equals(room)){
         return roomExist;
     }
 
-
-
     /**
      * @param room
      * @return boolean value indicate to that if the delete process success or not.
