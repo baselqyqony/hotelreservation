@@ -66,6 +66,13 @@ public  class RoomManagerServiceImpl implements RoomManagerService {
 
     }
 
+    public void updateRoom(Room room)throws RoomNotFoundException{
+        try {
+            roomDao.updateRoom(room);
+        }
+      catch (RoomRecordNotFoundException e) {throw new RoomNotFoundException("Room Not Found");}
+    }
+
     public void deleteRoom(Room room) throws RoomNotFoundException {
         try {
             roomDao.deleteRoom(room);

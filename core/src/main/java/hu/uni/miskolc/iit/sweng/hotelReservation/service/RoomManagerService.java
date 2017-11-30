@@ -8,26 +8,19 @@ import hu.uni.miskolc.iit.sweng.hotelReservation.service.exceptions.RoomAlreadyE
 
 import java.util.Collection;
 
-
-
-/*
-Created By Ahmad Reda 26-10-2017
+/**
+ * @author Ahmad Reda
  */
-
 
 public interface RoomManagerService {
 
-    /**
-     * Returns with a collection which contains all rooms.
-     * @return
-     */
     Collection<Room> listAllrooms();
     Room listRoomByNumber(int number) throws RoomNotFoundException;
     Collection<Room> listRoomByType(RoomType type ) throws RoomNotFoundException;
     Collection<Room> listRoomByCapacity(int capacity)throws RoomNotFoundException;
 
     Room createRoom (int number, RoomType type, int capacity) throws RoomAlreadyExistException;
-
+    public void updateRoom (Room room)throws RoomNotFoundException;
     public void deleteRoom(Room room) throws RoomNotFoundException;
 
 }
