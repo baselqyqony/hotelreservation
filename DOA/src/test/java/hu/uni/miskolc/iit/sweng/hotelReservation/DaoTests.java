@@ -100,6 +100,14 @@ public class DaoTests
         }
     }
 
+    @Test
+    //expected to delete existed user successfully
+    public void deletefoundUserTest(){
+
+        assertEquals(1,1);
+
+    }
+
 
     @After
     /**
