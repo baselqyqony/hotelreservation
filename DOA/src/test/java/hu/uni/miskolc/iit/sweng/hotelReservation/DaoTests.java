@@ -4,7 +4,9 @@ package hu.uni.miskolc.iit.sweng.hotelReservation;
 import hu.uni.miskolc.iit.sweng.hotelReservation.UserDAO.userDAOImpl;
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.UserDAO;
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.IncorrectEmailRecordFormatException;
+import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserRecordAlreadyExistsException;
 import hu.uni.miskolc.iit.sweng.hotelReservation.dao.exception.UserRecordNotFoundException;
+import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.Nationality;
 import hu.uni.miskolc.iit.sweng.hotelReservation.model.user.User;
 import org.junit.After;
 import org.junit.Assert;
@@ -104,11 +106,103 @@ public class DaoTests
     //expected to delete existed user successfully
     public void deletefoundUserTest(){
 
-        assertEquals(1,1);
+        User usr=userDao.readUsers().iterator().next() ;
+        try {
+            //print users before deletion
+            System.out.println("print users before deletion");
+            printCurrentUsers(userDao.readUsers());
+            userDao.deleteUser(usr);
+
+            //print users after deletion
+            System.out.println("print users after deletion");
+            printCurrentUsers(userDao.readUsers());
+            assertEquals(1,1);
+
+        } catch (UserRecordNotFoundException e) {
+            fail("user not found "+usr.getName());
+        }
+
+
+    }
+
+    @Test
+    //expected to fail to delete none exist user
+    public void deleteUserNotExistTest(){
+        User usr=new User(1,"Nadia Ali", Nationality.UK,"+4158978956","Birmingham\n" +
+                "West Midlands","nadiaali@gmail.uk");
+
+        try {
+            userDao.deleteUser(usr);
+        } catch (UserRecordNotFoundException e) {
+            fail("user not found");
+        }
+    }
+
+    @Test
+
+    //expected to update first user name successfully
+    public void updateUserTest(){
+        User usr=userDao.readUsers().iterator().next();
+        System.out.println("print users before update");
+        printCurrentUsers(userDao.readUsers());
+
+        usr.setName("makoto shinkai");
+        usr.setNationality(Nationality.US);
+
+        try {
+            userDao.updateUser(usr);
+        } catch (UserRecordNotFoundException e) {
+            fail("user record not found");
+        } catch (IncorrectEmailRecordFormatException e) {
+            fail("incorrect email");
+        }
+
+        System.out.println("print users after update");
+        printCurrentUsers(userDao.readUsers());
+
+    }
+
+    @Test
+    //expected to add user successfully
+       public void updateUserNonExistUserTest(){
+
+        User usr=new User(1,"Nadia Ali", Nationality.UK,"+4158978956","Birmingham\n" +
+                "West Midlands","nadiaali@gmail.uk");
+
+        try {
+            userDao.updateUser(usr);
+        } catch (UserRecordNotFoundException e) {
+          fail("user record not found");
+        } catch (IncorrectEmailRecordFormatException e) {
+          fail("incorrect email ");
+        }
+
+
+    }
+
+    @Test
+    //expected to create user successfully
+    public void createUserTest(){
+           User usr=new User(1900,"Nadia Ali", Nationality.UK,"+4158978956","Birmingham\n" +
+                   "West Midlands","nadiaali@gmail.uk");
+
+        System.out.println("print users before creation");
+        printCurrentUsers(userDao.readUsers());
+
+        try {
+            userDao.createUser(usr);
+        } catch (UserRecordAlreadyExistsException e) {
+            fail("user record already exist");
+        } catch (IncorrectEmailRecordFormatException e) {
+            fail("incorrect email format");
+        }
+        System.out.println("print users after creation");
+        printCurrentUsers(userDao.readUsers());
 
     }
 
 
+    
     @After
     /**
      * close userDao instance after each test

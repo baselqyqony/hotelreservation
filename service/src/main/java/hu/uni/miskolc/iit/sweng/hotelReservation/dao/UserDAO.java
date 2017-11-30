@@ -75,7 +75,7 @@ public interface UserDAO {
      * @return user
      * @throws UserRecordAlreadyExistsException
      */
-    User createUser(User user) throws UserRecordAlreadyExistsException;
+    User createUser(User user) throws UserRecordAlreadyExistsException,IncorrectEmailRecordFormatException;
 
     /**
      * update user info to database
@@ -83,7 +83,7 @@ public interface UserDAO {
      * @return process result update success of fail
      * @throws UserRecordNotFoundException
      */
-    boolean updateUser(User user) throws UserRecordNotFoundException;
+    boolean updateUser(User user) throws UserRecordNotFoundException,IncorrectEmailRecordFormatException;
 
     /**
      * delete user

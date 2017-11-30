@@ -158,6 +158,22 @@ public class userDAOImpl implements UserDAO{
     }
 
     /**
+     * check email validity
+     * @param email
+     * @return true if email valid else false
+     */
+    private boolean checkEmailValidity(String email){
+        boolean result=true;
+    //check Email format validity
+    final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+    Matcher checker=VALID_EMAIL_ADDRESS_REGEX.matcher(email);
+    if(!checker.find())
+    {
+           result=false;
+    }
+    return result;
+}
+    /**
      * get user by email
      *  any part of email is accepted that's why it may return list
      * @param email
@@ -166,9 +182,8 @@ public class userDAOImpl implements UserDAO{
      */
     public Collection<User> listUserByEmail(String email) throws UserRecordNotFoundException,IncorrectEmailRecordFormatException {
         //check Email format validity
-         final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
-         Matcher checker=VALID_EMAIL_ADDRESS_REGEX.matcher(email);
-         if(!checker.find())
+
+         if(!checkEmailValidity(email))
         {
             throw new IncorrectEmailRecordFormatException("incorrect email format !");
         }
@@ -222,7 +237,7 @@ public class userDAOImpl implements UserDAO{
 
         for(User record:users)
         {
-           if(record.getID()==user.getID()){
+           if(record.equals(user)){
                record.setAddress(user.getEmail());
                record.setName(user.getName());
                record.setNationality(user.getNationality());
@@ -254,7 +269,7 @@ public class userDAOImpl implements UserDAO{
 
         for(User record:users)
         {
-            if(record.getID()==user.getID()){
+            if(record.equals(user)){
 
                users.remove(user);
                 userFound=true;
