@@ -90,14 +90,21 @@ public class UserManagerServiceImpl implements UserManagerService {
         }
     }
 
-    public User createUser(int ID, String name, Nationality nationality, String phone, String address, String Email) throws UserAlreadyExistException {
+    public User createUser(int ID, String name, Nationality nationality, String phone, String address, String Email)
+            throws UserAlreadyExistException,IncorrectEmailFormatException
+   {
         User user =new User( ID, name,  nationality,  phone,  address, Email);
-        try {
 
+        try {
             return userDao.createUser(user);
         } catch (UserRecordAlreadyExistsException e) {
             throw new UserAlreadyExistException("user already exists");
+        } catch (IncorrectEmailRecordFormatException e) {
+
+         throw new IncorrectEmailFormatException("incorrect email format");
         }
+
+
     }
 
     public void deleteUser(User user) throws UserNotFoundException {
@@ -108,11 +115,15 @@ public class UserManagerServiceImpl implements UserManagerService {
         }
     }
 
-    public boolean updateUser(User user) throws UserNotFoundException {
+    public boolean updateUser(User user) throws UserNotFoundException,IncorrectEmailFormatException {
+
         try {
             return userDao.updateUser(user);
         } catch (UserRecordNotFoundException e) {
-            throw new UserNotFoundException("this user in not found");
+            throw new UserNotFoundException("user not found");
+        } catch (IncorrectEmailRecordFormatException e) {
+           throw new IncorrectEmailFormatException("incorrect email format");
         }
+
     }
 }

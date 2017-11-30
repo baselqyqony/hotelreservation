@@ -24,10 +24,10 @@ public interface UserManagerService {
              Nationality nationality,
              String phone,
              String address,
-             String Email) throws UserAlreadyExistException;
+             String Email) throws UserAlreadyExistException,IncorrectEmailFormatException;
 
     public void deleteUser(User user) throws UserNotFoundException;
 
 
-    boolean updateUser(User user) throws UserNotFoundException;
+    boolean updateUser(User user) throws UserNotFoundException,IncorrectEmailFormatException;
 }
