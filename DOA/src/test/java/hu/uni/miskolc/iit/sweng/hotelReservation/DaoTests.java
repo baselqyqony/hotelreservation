@@ -26,28 +26,28 @@ import static org.junit.Assert.*;
 public class DaoTests
 {
 
- public UserDAO userDao;
-  @Before
-  /**
-   * initialize user dao befor each test
-   */
+    public UserDAO userDao;
+    @Before
+    /**
+     * initialize user dao befor each test
+     */
     public void InitializeUserDao(){
-      userDao =new userDAOImpl();
-      System.out.println("User Dao instance initialized");
-  }
+        userDao =new userDAOImpl();
+        System.out.println("User Dao instance initialized");
+    }
 
-  @Test
+    @Test
     public void listAllUsersTest(){
-       Collection<User> allUsers= userDao.readUsers();
-       if(null==allUsers){
-           System.out.println("null list values");
-           fail("null list values");
-       }
-       else
-       {
-           printCurrentUsers(allUsers);
-       assertEquals(1,1);
-       }
+        Collection<User> allUsers= userDao.readUsers();
+        if(null==allUsers){
+            System.out.println("null list values");
+            fail("null list values");
+        }
+        else
+        {
+            printCurrentUsers(allUsers);
+            assertEquals(1,1);
+        }
     }
 
     private void printCurrentUsers(Collection<User> allUsers){
@@ -179,12 +179,12 @@ User usr=userDao.readUsers().iterator().next();
 
 
 
-  @After
-  /**
-   * close userDao instance after each test
-   */
+    @After
+    /**
+     * close userDao instance after each test
+     */
     public void finalizeUserDao(){
         userDao=null;
-      System.out.println("User Dao instance closed");
-  }
+        System.out.println("User Dao instance closed");
+    }
 }

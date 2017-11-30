@@ -14,7 +14,7 @@ public interface RoomDAO {
     Collection<Room> readRoomByCapacities(int capacity)  throws RoomRecordNotFoundException;
 
     Room createRoom (Room room) throws RoomRecordAlreadyExistException;
-    boolean updateRoom (Room room) throws RoomRecordNotFoundException;
-    boolean deleteRoom (Room room) throws RoomRecordNotFoundException;
+    Room updateRoom (Room room) throws RoomRecordNotFoundException;
+    void deleteRoom (Room room) throws RoomRecordNotFoundException;
 
 }
